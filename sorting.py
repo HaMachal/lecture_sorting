@@ -63,16 +63,18 @@ def bubble_sort2(number_array):
                 number_array[num_idx], number_array[num_idx + 1] = number_array[num_idx + 1], number_array[num_idx]
 
 def insertion_sort(number_arr):
-    """
+    for i in range(1, len(number_arr)):
+        idx = i
+        while number_arr[idx] < number_arr[idx - 1]:
+            number_arr[idx - 1], number_arr[idx] = number_arr[idx], number_arr[idx - 1]
+            idx = idx - 1
+    return number_arr
 
-    :param number_arr:
-    :return:
-    """
 
 def main():
     data = read_data("numbers.csv")
     print(data)
-    print(bubble_sort(data["series_2"]))
+    print(insertion_sort(data["series_2"]))
 
 
 if __name__ == '__main__':
