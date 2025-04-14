@@ -39,11 +39,40 @@ def selection_sort(number_array, direction='ascending'):
         number_array[i], number_array[extreme_idx] = number_array[extreme_idx], number_array[i]
     return number_array
 
+def bubble_sort(number_array):
+    """
+
+    :param number_array: list of numbers to be sorted
+    :return: sorted numeric array
+    """
+    # Není moc efektivní, for cyklus by mohl být n - i dlouhý –> upravit vnější for cyklus na i
+    bool = True
+    while bool:
+        bool = False
+        for i in range(len(number_array) - 1):
+            if number_array[i] > number_array[i + 1]:
+                number_array[i], number_array[i + 1] = number_array[i + 1], number_array[i]
+                bool = True
+    return number_array
+
+def bubble_sort2(number_array):
+    n = len(number_array)
+    for i in range(n - 1):
+        for num_idx in range(n - i):
+            if number_array[num_idx] > number_array[num_idx + 1]:
+                number_array[num_idx], number_array[num_idx + 1] = number_array[num_idx + 1], number_array[num_idx]
+
+def insertion_sort(number_arr):
+    """
+
+    :param number_arr:
+    :return:
+    """
 
 def main():
     data = read_data("numbers.csv")
     print(data)
-    print(selection_sort(data["series_1"], "descending"))
+    print(bubble_sort(data["series_2"]))
 
 
 if __name__ == '__main__':
